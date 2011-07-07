@@ -7,3 +7,4 @@ gem 'omniauth',
   :branch => '1.0-beta',
   :submodules => true
 gem 'bcrypt-ruby'
+gem 'rake', '0.8.7'
