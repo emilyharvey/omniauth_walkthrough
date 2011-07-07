@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    @current_user ||= Master.find(cookies.signed[:master_id].to_s) if cookies.signed[:master_id]
+    @current_user ||= Master.find(cookies.signed[:master_id].to_i) if cookies.signed[:master_id]
   end
   
   def clear_authentications

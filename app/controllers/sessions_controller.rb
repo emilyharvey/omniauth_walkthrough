@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
       if user == nil
         master = Master.create_with_omniauth(auth)
         user = User.create_with_omniauth(auth, master.id)
-        cookies.signed[:master_id] = master.id.to_s
+        cookies.signed[:master_id] = master.id
       else
-        cookies.signed[:master_id] = user.master.to_s
+        cookies.signed[:master_id] = user.master
       end
       
       clear_authentications
