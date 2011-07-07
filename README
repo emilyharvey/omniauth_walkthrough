@@ -1,4 +1,4 @@
-This branch of the code adds onto the add_providers branch.
+This branch of the code adds onto the no_master_multiple_auths branch.
 
-It shows how to allow for multiple authentications to log into one system.  There
-is no information that will persist between sessions.
+After logging in with multiple authentications, you have the possibility of
+disconnecting from each of the authentications individually.

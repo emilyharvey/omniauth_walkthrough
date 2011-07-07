@@ -1,3 +1,4 @@
-This branch of the code adds onto the master branch.
+This branch of the code adds onto the add_providers branch.
 
-It shows how to add more providers to the application.
+It shows how to allow for multiple authentications to log into one system.  There
+is no information that will persist between sessions.

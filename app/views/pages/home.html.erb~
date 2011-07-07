@@ -1,6 +1,12 @@
 <% if current_user %>
-  Welcome <%= current_user.name %>!<br>
-  <%= link_to "Sign Out", signout_path %>
+  Welcome <%= current_user.name %>! <br>
+  <%= link_to "Sign Out of All Accounts", signout_path %>
+  
+  <p>
+  <% @authentications.each do |auth| %>
+    <%= image_tag "#{auth.provider}_32.png", :size => "32x32", :alt => "#{auth.provider}" %> <%= auth.uid %><br> 
+  <% end %>
+  </p>
 <% end %>
 
 <p>
