@@ -17,8 +17,7 @@ class SessionsController < ApplicationController
       
       clear_authentications
     else
-      user = User.find_by_provider_and_uid(auth["provider"], 
-         ["uid"])
+      user = User.find_by_provider_and_uid(auth["provider"], ["uid"])
       
       if user == nil
         User.create_with_omniauth(auth, cookies.signed[:master_id])
