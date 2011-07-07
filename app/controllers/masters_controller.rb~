@@ -1,0 +1,9 @@
+class UsersController < ApplicationController
+  def show
+    @master = Master.find(params[:id])
+  end
+  
+  def index
+    @masters = Master.all
+  end
+end

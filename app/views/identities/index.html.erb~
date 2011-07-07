@@ -1,0 +1,7 @@
+<ul class="users">
+  <% @identities.each do |identity| %>
+    <li>
+      <%= identity.id %>: <%= link_to identity.name, identity %>
+    </li>
+  <% end %>
+</ul>

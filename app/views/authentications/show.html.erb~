@@ -1,0 +1,4 @@
+Id: <%= @authentication.id %><br>
+Provider: <%= @authentication.provider %><br>
+UID: <%= @authentication.uid %><br>
+user_id: <%= @authentication.user_id %><br>

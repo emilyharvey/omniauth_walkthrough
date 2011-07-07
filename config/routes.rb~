@@ -1,4 +1,6 @@
 OmniauthTutorial::Application.routes.draw do
+  resources :authentications
+  
   match "/auth/failure", :to => "pages#error"
 
   # OmniAuth strategies require a callback

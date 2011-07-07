@@ -1,0 +1,7 @@
+<ul class="users">
+  <% @masters.each do |master| %>
+    <li>
+      <%= master.id %>: <%= link_to master.name, master %>
+    </li>
+  <% end %>
+</ul>
