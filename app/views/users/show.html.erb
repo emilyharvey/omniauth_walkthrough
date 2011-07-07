@@ -1,0 +1,12 @@
+Id: <%= @user.id %> <br>
+provider: <%= @user.provider %><br>
+uid: <%= @user.uid %><br>
+name: <%= @user.name %><br>
+email: <%= @user.email %><br>
+created_at: <%= @user.created_at %><br>
+updated_at: <%= @user.updated_at %><br>
+<p>
+authblob: 
+</p><pre>
+<%= @user.authblob.to_s %>
+</pre>

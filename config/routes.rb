@@ -1,5 +1,5 @@
 OmniauthTutorial::Application.routes.draw do
-  resources :authentications
+  resources :authentications, :users, :identities, :authentications
   
   match "/auth/failure", :to => "pages#error"
 

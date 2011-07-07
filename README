@@ -1,4 +1,5 @@
-This branch of the code adds onto the no_master_multiple_auths branch.
+This branch of the code adds onto the multiple_disconnect_no_master branch.
 
-After logging in with multiple authentications, you have the possibility of
-disconnecting from each of the authentications individually.
+There are times you want to view the information about all the data you have in the
+database.  Add each model as a resource in your database such that you can view
+its information.

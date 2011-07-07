@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   
   def self.create_with_omniauth(auth)
     create! do |user|
+      user.authblob = auth.to_yaml
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["user_info"]["name"]

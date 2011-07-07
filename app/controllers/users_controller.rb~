@@ -1,0 +1,21 @@
+class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
+  end
+  
+  def index
+    @users = User.all
+  end
+  
+  def destroy
+    user = User.find(params[:id])
+    user.update_attributes(:loggedin => 0)
+    
+    users = User.find_all_by_loggedin(true)
+    if (users.count == 0)
+      redirect_to signout_path, :notice => "Signed out!"
+    else
+      redirect_to root_url, :notice => "Signed out!"
+    end
+  end
+end

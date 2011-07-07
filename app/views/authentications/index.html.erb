@@ -1,0 +1,7 @@
+<ul class="authentications">
+  <% @authentications.each do |auth| %>
+    <li>
+      <%= auth.id %>: <%= link_to auth.provider, auth %>
+    </li>
+  <% end %>
+</ul>
