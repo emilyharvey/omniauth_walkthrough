@@ -3,7 +3,7 @@ class Master < ActiveRecord::Base
   
   def self.create_with_omniauth(auth)
     create! do |master|
-      master.name = auth["user_info"]["name"]
+      master.name = auth["user_info"]["name"].to_s
       master.bgcolor = "#FBF984"
     end
   end
