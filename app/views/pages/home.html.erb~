@@ -1,6 +1,11 @@
 <% if current_user %>
   Welcome <%= current_user.name %>!<br>
   <%= link_to "Sign Out", signout_path %>
-<% else %>
-  <%= link_to "Sign in", "/auth/identity" %>
 <% end %>
+
+<p>
+Sign in with an account:<br>
+  <a href="/auth/identity"><%= image_tag "identity_64.png", :size => "64x64", :alt => "Identity" %></a>
+  <a href="/auth/twitter"><%= image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter" %></a>
+  <a href="/auth/github"><%= image_tag "github_64.png", :size => "64x64", :alt => "GitHub" %></a>
+</p>
