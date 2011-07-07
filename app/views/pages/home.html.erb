@@ -6,7 +6,10 @@
   
   <p>
   <% @authentications.each do |auth| %>
-    <%= image_tag "#{auth.provider}_32.png", :size => "32x32", :alt => "#{auth.provider}" %> <%= auth.uid %> <br>
+    <%= image_tag "#{auth.provider}_32.png", :size => "32x32", :alt => "#{auth.provider}" %> <%= auth.uid %> 
+    <% if @count > 1 %>
+      <%= link_to "Disconnect", auth, :confirm => 'Are you sure?', :method => :delete %><br>
+    <% end %>
   <% end %>
   </p>
 <% else %>
