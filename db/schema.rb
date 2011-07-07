@@ -10,12 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707203559) do
+ActiveRecord::Schema.define(:version => 20110707214400) do
+
+  create_table "authentications", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "master_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "identities", :force => true do |t|
     t.string   "password_digest"
     t.string   "name"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "masters", :force => true do |t|
+    t.string   "name"
+    t.string   "bgcolor"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20110707203559) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "master"
   end
 
 end
