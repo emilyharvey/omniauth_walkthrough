@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
-    provider = auth["provider"]
-    uid = auth["uid"]
+    provider = auth["provider"].to_s
+    uid = auth["uid"].to_s
     
     if cookies.signed[:master_id] == nil
       user = User.find_by_provider_and_uid(provider,uid)
