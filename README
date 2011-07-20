@@ -1,3 +1,3 @@
-This branch of the code adds onto the has_master_multiple_auths branch.
+This branch of the code adds onto the view_details_has_master branch.
 
-Added functionality such that you can individually disconnect from accounts.
+Added in form validation from overwriting current oa-identity classes.
