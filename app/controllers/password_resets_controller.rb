@@ -6,9 +6,9 @@ class PasswordResetsController < ApplicationController
 	  identity = Identity.find_by_email(params[:email])  
 	  #identity.send_password_reset if identity  
 	  if (identity)
-	  	redirect_to root_url, :notice => "Go To: <a href='http://omniauth-tutorial.heroku.com/password_resets/" + identity.password_reset_token + "/edit'>http://omniauth-tutorial.heroku.com/password_resets/" + identity.password_reset_token + "/edit</a>"
+	  	redirect_to root_url, :notice => "Go To: http://omniauth-tutorial.heroku.com/password_resets/" + identity.password_reset_token + "/edit"
 	  else
-		  redirect_to root_url, :notice => "Email sent with password reset instructions."  
+		  redirect_to root_url, :notice => "This email address is not registered yet"  
 		end
 	end  
 
