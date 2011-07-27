@@ -4,8 +4,12 @@ class PasswordResetsController < ApplicationController
 
   def create  
 	  identity = Identity.find_by_email(params[:email])  
-	  identity.send_password_reset if identity  
-	  redirect_to root_url, :notice => "Email sent with password reset instructions."  
+	  #identity.send_password_reset if identity  
+	  if (identity)
+	  	redirect_to root_url, :notice => "Go To: http://omniauth-tutorial.heroku.com/password_resets/" + identity.password_reset_token + "/edit"
+	  else
+		  redirect_to root_url, :notice => "Email sent with password reset instructions."  
+		end
 	end  
 
 	def edit  
