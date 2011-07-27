@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :mailer_set_url_options
   # Basic user session handling
   helper_method :current_user, :clear_authentications
+
+  def mailer_set_url_options
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
 
   private
   def current_user
