@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
     provider = auth["provider"].to_s
     uid = auth["uid"].to_s
     
+    user = User.find_by_provider_and_uid(provider,uid)
     if cookies.signed[:master_id] == nil
-      user = User.find_by_provider_and_uid(provider,uid)
-      
+      # If a user has not been signed in at all
       if user == nil
+        # If the current user has not been signed in
         master = Master.create_with_omniauth(auth)
         user = User.create_with_omniauth(auth, master.id)
         cookies.signed[:master_id] = master.id
@@ -17,8 +18,8 @@ class SessionsController < ApplicationController
       
       clear_authentications
     else
-      user = User.find_by_provider_and_uid(auth["provider"], ["uid"])
-      
+      # If no user has been signed in yet, create them or update
+      #  the user to indicate with a main/master account id
       if user == nil
         User.create_with_omniauth(auth, cookies.signed[:master_id])
       else

@@ -4,6 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :github, 'f6d9845597fb42f76380', '08665942800b0a952a71fda8269f9fc3b2cc8526'
 
   OmniAuth::Form.module_eval do
+
     def input_field_with_text(type, name, text)
       @html << "\n<input type='#{type}' id='#{name}' name='#{name}' value='#{text}'/>"
       self
@@ -30,12 +31,18 @@ Rails.application.config.middleware.use OmniAuth::Builder do
         :title => (options[:title] || "Identity Verification")
       ) do |f|
         if error
-          f.html "<font color='red'>The login and password don't match, please try again.</font>"
+          f.html "<p align='center'><font color='red'>The login and password don't match, please try again.</font><p>"
         end
-        f.text_field 'Login', 'auth_key'
+        if error
+          f.text_field_with_text 'Login', 'auth_key', request[:auth_key].to_s
+        else
+          puts 
+          f.text_field 'Login', 'auth_key'
+        end
         f.password_field 'Password', 'password'
+        f.html "<style type='text/css'>input#remember_username { display: inline; margin-bottom: auto; width: 20px; } label#remember_username { display: inline; margin-bottom: auto; width: auto; }</style>"
         f.html "<p align='center'><a href='#{registration_path}'>Create an Identity</a></p>"
-        f.html "<p align='center'><a href='#'>Forgot Your Password</a></p>"
+        f.html "<p align='center'><a href='../../password_resets/new'>Forgot Your Password</a></p>"
       end.to_response 
     end
 

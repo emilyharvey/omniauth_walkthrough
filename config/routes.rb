@@ -1,5 +1,7 @@
 OmniauthTutorial::Application.routes.draw do
-  resources :authentications, :identities, :users, :masters
+  get "password_resets/new"
+
+  resources :authentications, :identities, :users, :masters, :password_resets
   
   match "/auth/failure", :to => "pages#error"
 
